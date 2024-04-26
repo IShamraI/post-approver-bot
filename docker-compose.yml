@@ -1,0 +1,15 @@
+version: '3'
+services:
+  post-bot:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    environment:
+      TELEGRAM_TOKEN: ${TELEGRAM_TOKEN}
+      TELEGRAM_WHITELIST: ${TELEGRAM_WHITELIST}
+      AIRTABLE_BASE_ID: ${AIRTABLE_BASE_ID}
+      AIRTABLE_TABLE_NAME: ${AIRTABLE_TABLE_NAME}
+      AIRTABLE_API_KEY: ${AIRTABLE_API_KEY}
+    restart: always
+    volumes:
+      - .:/app
